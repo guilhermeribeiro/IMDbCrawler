@@ -4,6 +4,7 @@ import com.crawler.entity.Filme;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 public class BuscaFilmes {
@@ -23,6 +24,8 @@ public class BuscaFilmes {
             filme = buscaFilmesService.buscarDiretoresAtoresFilme(filme);
             filme = buscaFilmesService.buscarComentario(filme);
         }
+
+        filmes.sort(Comparator.comparing(Filme::getNota).reversed());
 
         System.out.println(" ");
 
